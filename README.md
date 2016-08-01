@@ -4,9 +4,11 @@
 
 A Cloud Foundry [buildpack](http://docs.cloudfoundry.org/buildpacks/) for Python based apps.
 
-This is based on the [Heroku buildpack] (https://github.com/heroku/heroku-buildpack-python).
+This is based on the [Cloud Foundry Python Buildpack](https://github.com/cloudfoundry/python-buildpack).
 
 This buildpack supports running Django and Flask apps.
+
+This buildpack includes pdf2htmlEX which can be called as a shell command.
 
 ### Buildpack User Documentation
 
@@ -51,6 +53,16 @@ BUNDLE_GEMFILE=cf.Gemfile bundle exec buildpack-build
 ```
 
 More options can be found on Machete's [Github page.](https://github.com/cloudfoundry/machete)
+
+### How to use pdf2htmlEX in the buildpack
+
+pdf2htmlEX can be used as a shell command. The following example shows how to use it in a python app:
+```
+import os
+
+os.system("pdf2htmlEX --data-dir ./vendor/pdf2htmlEX/data-dir/ aPdfFile.pdf anHtmlFile.html"
+```
+Keep in mind, every time we want to call pdf2htmlEX we need to pass the ```--data-dir``` parameter and the following directory in order to tell pdf2htmlEX where to look for the manifest and other important files. 
 
 ### Contributing
 
