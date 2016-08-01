@@ -57,7 +57,7 @@ More options can be found on Machete's [Github page.](https://github.com/cloudfo
 ### How to use pdf2htmlEX in the buildpack
 
 pdf2htmlEX can be used as a shell command. The following example shows how to use it in a python app:
-```
+```python
 import os
 
 os.system("pdf2htmlEX --data-dir ./vendor/pdf2htmlEX/data-dir/ aPdfFile.pdf anHtmlFile.html"
